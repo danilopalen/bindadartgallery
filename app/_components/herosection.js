@@ -16,7 +16,7 @@ export default function HeroSection() {
           className={`hero-video ${isVideoLoaded ? "loaded" : ""}`}
         >
           <source
-            src="https://res.cloudinary.com/dl21jdd1c/video/upload/v1768203950/2DF9E165-EA5B-4B51-B776-EBE42F02E060_ae5ws5.mp4"
+            src="https://res.cloudinary.com/dl21jdd1c/video/upload/v1768211167/att.Q5AAHQyilfp2m4xcNSnwBsvZCpWCR3G1JpKhwQGAr0U_dklzkq.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
