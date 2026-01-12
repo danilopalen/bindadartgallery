@@ -1,28 +1,103 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRight, Star, Clock, Shield, Menu, X } from "lucide-react";
+import HeroSection from "../_components/herosection";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import Image from "next/image";
 
 export default function AntiqueShopLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const collections = [
+  const slides = [
     {
       title: "Filipino Bulul Statues",
+      subtitle: "Sacred Heritage in Wood",
       description:
-        "Sacred rice guardians hand-carved from ancient wood, each piece representing centuries of cultural heritage",
-      icon: "🗿",
+        "Authentic rice guardians carved by master artisans, preserving centuries of Ifugao tradition",
     },
     {
-      title: "Classical Paintings",
+      title: "Classical Masterpieces",
+      subtitle: "Timeless Artistry",
       description:
-        "Curated masterpieces from renowned artists spanning multiple artistic movements and eras",
-      icon: "🖼️",
+        "Curated paintings from renowned artists spanning multiple eras and movements",
     },
     {
       title: "Rare Antiquities",
+      subtitle: "History Preserved",
       description:
-        "Unique historical pieces with documented provenance and exceptional craftsmanship",
-      icon: "⚱️",
+        "Exceptional pieces with documented provenance and historical significance",
+    },
+  ];
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % slides.length);
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, [slides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const collections = [
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208195/IMG_7074_vlcbxz.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208195/IMG_7089_xqfbui.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208194/IMG_7090_cvcy7c.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208193/IMG_7087_iffihh.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208192/IMG_7086_y4uvow.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208192/IMG_7085_r5t9vi.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208192/IMG_7084_rkemo7.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208191/IMG_7083_istg9m.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208190/IMG_7082_ax92si.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7080_vqqatv.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7081_vh9muo.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7078_c71wgl.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7079_rg4uyl.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7077_z0nfpv.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7076_jbgvfa.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7075_gjk1bv.jpg",
     },
   ];
 
@@ -53,7 +128,17 @@ export default function AntiqueShopLanding() {
       <nav style={styles.nav}>
         <div style={styles.navContainer}>
           <div style={styles.navContent}>
-            <div style={styles.logo}>BINDAD ART GALLERY</div>
+            <div style={styles.logo}>
+              <div>
+                BIND<span style={{ color: "#000" }}>A</span>D.
+              </div>
+              <div style={{ marginLeft: "27px" }}>
+                CO<span style={{ color: "#000" }}>R</span>DILLERA
+              </div>
+              <div style={{ marginLeft: "29px" }}>
+                AR<span style={{ color: "#000" }}>T</span> AND CULTURE
+              </div>
+            </div>
 
             <div style={styles.navLinks}>
               <a href="#collections" style={styles.navLink}>
@@ -97,11 +182,11 @@ export default function AntiqueShopLanding() {
         </div>
       </nav>
 
+      <HeroSection />
       {/* Hero Section */}
-      <section style={styles.hero}>
+      {/* <section style={styles.heroImage}>
         <div style={styles.container2}>
           <div style={styles.heroContent}>
-            <div style={styles.badge}>EST. 1987</div>
             <h1 style={styles.heroTitle}>
               Where History
               <br />
@@ -118,10 +203,69 @@ export default function AntiqueShopLanding() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      {/* Hero Carousel */}
+      {/* <section style={styles.hero}>
+        <div style={styles.carouselContainer}>
+          <div style={styles.carouselWrapper}>
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                style={{
+                  ...styles.slide,
+                  opacity: currentSlide === index ? 1 : 0,
+                  visibility: currentSlide === index ? "visible" : "hidden",
+                  backgroundImage: `url(
+                    "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768206619/att.3y7GklND0aK_rH8NwOFGWw_N2T40qtFJeqhe7IEI0rA_tkduni.jpg"
+                  )`,
+                }}
+              >
+                <div style={styles.slideContent}>
+                  <h2 style={styles.slideSubtitle}>{slide.subtitle}</h2>
+                  <p style={styles.slideText}>{slide.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={prevSlide}
+            style={{ ...styles.carouselButton, ...styles.carouselButtonLeft }}
+          >
+            <ChevronRight
+              style={{
+                width: "32px",
+                height: "32px",
+                transform: "rotate(180deg)",
+              }}
+            />
+          </button>
+          <button
+            onClick={nextSlide}
+            style={{ ...styles.carouselButton, ...styles.carouselButtonRight }}
+          >
+            <ChevronRight style={{ width: "32px", height: "32px" }} />
+          </button>
+
+          <div style={styles.dotsContainer}>
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                style={{
+                  ...styles.dot,
+                  backgroundColor:
+                    currentSlide === index ? "#8b5a3c" : "#e5d4c1",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section> */}
 
       {/* Features */}
-      <section style={styles.section}>
+      {/* <section style={styles.section}>
         <div style={styles.container2}>
           <div style={styles.featuresGrid}>
             {features.map((feature, idx) => (
@@ -133,29 +277,53 @@ export default function AntiqueShopLanding() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Collections */}
       <section id="collections" style={styles.collectionsSection}>
         <div style={styles.container2}>
           <div style={styles.sectionHeader}>
-            <h2 style={styles.sectionTitle}>Our Collections</h2>
-            <p style={styles.sectionSubtitle}>
+            <h2 style={styles.sectionTitle}>Our Bulul Collections</h2>
+            {/* <p style={styles.sectionSubtitle}>
               Timeless treasures from around the world
-            </p>
+            </p> */}
           </div>
 
           <div style={styles.collectionsGrid}>
             {collections.map((collection, idx) => (
-              <div key={idx} style={styles.collectionCard}>
-                <div style={styles.collectionIcon}>{collection.icon}</div>
-                <h3 style={styles.collectionTitle}>{collection.title}</h3>
-                <p style={styles.collectionText}>{collection.description}</p>
-                <div style={styles.collectionLink}>
-                  <span>View Collection</span>
-                  <ChevronRight style={{ width: "20px", height: "20px" }} />
-                </div>
-              </div>
+              <Zoom key={idx}>
+                <img
+                  alt="That Wanaka Tree, New Zealand by Laura Smetsers"
+                  src={`${collection.url}`}
+                  width="300"
+                  style={{
+                    borderRadius: "16px",
+                    border: "1px solid #e5d4c1",
+                    transition: "border-color 0.2s, background-color 0.2s",
+                  }}
+                />
+              </Zoom>
+              // <div
+              //   key={idx}
+              //   style={{
+              //     ...styles.collectionCard,
+              //     backgroundImage: `url(
+              //       ${collection.url}
+              //     )`,
+              //     backgroundPosition: "center",
+              //     backgroundRepeat: "no-repeat",
+              //     backgroundSize: "contain",
+              //     height: "300px",
+              //   }}
+              // >
+              //  <div style={styles.collectionIcon}>{collection.icon}</div>
+              // <h3 style={styles.collectionTitle}>{collection.title}</h3>
+              // <p style={styles.collectionText}>{collection.description}</p>
+              // <div style={styles.collectionLink}>
+              //   <span>View Collection</span>
+              //   <ChevronRight style={{ width: "20px", height: "20px" }} />
+              // </div>
+              // </div>
             ))}
           </div>
         </div>
@@ -166,7 +334,6 @@ export default function AntiqueShopLanding() {
         <div style={styles.container2}>
           <div style={styles.aboutGrid}>
             <div style={styles.aboutContent}>
-              <div style={styles.aboutIcon}>📜</div>
               <h2 style={styles.aboutTitle}>A Legacy of Excellence</h2>
               <p style={styles.aboutText}>
                 {`For over three decades, we've been preserving history and
@@ -178,9 +345,9 @@ export default function AntiqueShopLanding() {
                 Every artifact in our collection is authenticated, documented,
                 and chosen for its historical significance and artistic merit.
               </p>
-              <button style={styles.aboutButton}>Our Story</button>
+              {/* <button style={styles.aboutButton}>Our Story</button> */}
             </div>
-            <div style={styles.statsGrid}>
+            {/* <div style={styles.statsGrid}>
               <div style={styles.statCard}>
                 <div style={styles.statNumber}>35+</div>
                 <div style={styles.statLabel}>Years of Expertise</div>
@@ -197,13 +364,13 @@ export default function AntiqueShopLanding() {
                 <div style={styles.statNumber}>100%</div>
                 <div style={styles.statLabel}>Authenticated</div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section style={styles.ctaSection}>
+      {/* <section style={styles.ctaSection}>
         <div style={styles.container2}>
           <div style={styles.ctaCard}>
             <h2 style={styles.ctaTitle}>Start Your Collection Today</h2>
@@ -214,18 +381,18 @@ export default function AntiqueShopLanding() {
             <button style={styles.ctaButton}>Schedule a Visit</button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer id="contact" style={styles.footer}>
         <div style={styles.container2}>
           <div style={styles.footerContent}>
-            <div style={styles.footerLogo}>BINDAD ART GALLERY</div>
+            <div style={styles.footerLogo}>BINDAD ART</div>
             <p style={styles.footerText}>
               Preserving history, one masterpiece at a time
             </p>
             <div style={styles.footerCopyright}>
-              © 2026 Bindad Art Gallery. All rights reserved.
+              © 2026 Bindad Art. All rights reserved.
             </div>
           </div>
         </div>
@@ -314,11 +481,122 @@ const styles = {
     fontWeight: "600",
     width: "fit-content",
   },
-  hero: {
+  heroImage: {
     paddingTop: "128px",
     paddingBottom: "96px",
     paddingLeft: "24px",
     paddingRight: "24px",
+  },
+  hero: {
+    paddingTop: "124px",
+    paddingBottom: "0",
+    paddingLeft: "0",
+    paddingRight: "0",
+    position: "relative",
+  },
+  carouselContainer: {
+    position: "relative",
+    width: "100%",
+    height: "600px",
+    overflow: "hidden",
+  },
+  carouselWrapper: {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+  },
+  slide: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "opacity 0.5s ease-in-out",
+    // backgroundColor: "#faf5ef",
+    backgroundPosition: "50%",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "flex",
+    alignItems: "flex-end",
+  },
+  slideContent: {
+    width: "100%",
+    padding: "0 24px",
+    background: "linear-gradient(0deg, #8e9eab 0%, transparent 100%)",
+    // background: "linear-gradient(0deg, #434343 0%, transparent 100%)",
+    textAlign: "center",
+    height: "300px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+  },
+  slideIcon: {
+    fontSize: "120px",
+    marginBottom: "24px",
+  },
+  slideTitle: {
+    fontSize: "64px",
+    fontWeight: "bold",
+    marginBottom: "16px",
+    lineHeight: "1.1",
+    color: "#2d1810",
+  },
+  slideSubtitle: {
+    fontSize: "32px",
+    fontWeight: "600",
+    color: "#fff",
+  },
+  slideText: {
+    fontSize: "20px",
+    color: "#fff",
+    marginBottom: "40px",
+    lineHeight: "1.6",
+    maxWidth: "672px",
+    margin: "0 auto 40px",
+  },
+  carouselButton: {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    border: "1px solid #e5d4c1",
+    borderRadius: "50%",
+    width: "56px",
+    height: "56px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    transition: "all 0.2s",
+    color: "#8b5a3c",
+    zIndex: 10,
+  },
+  carouselButtonLeft: {
+    left: "24px",
+  },
+  carouselButtonRight: {
+    right: "24px",
+  },
+  dotsContainer: {
+    position: "absolute",
+    bottom: "5px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    display: "flex",
+    gap: "12px",
+    zIndex: 10,
+  },
+  dot: {
+    width: "12px",
+    height: "12px",
+    borderRadius: "50%",
+    border: "none",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
+    padding: 0,
   },
   container2: {
     maxWidth: "1280px",
@@ -330,7 +608,7 @@ const styles = {
   badge: {
     display: "inline-block",
     padding: "6px 16px",
-    backgroundColor: "#faf5ef",
+    backgroundColor: "#ffffff",
     border: "1px solid #d4a574",
     borderRadius: "24px",
     color: "#8b5a3c",
@@ -399,7 +677,7 @@ const styles = {
     lineHeight: "1.6",
   },
   collectionsSection: {
-    padding: "96px 24px",
+    padding: "124px 24px 96px",
   },
   sectionHeader: {
     textAlign: "center",
@@ -417,7 +695,7 @@ const styles = {
   },
   collectionsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, 296px)",
     gap: "32px",
   },
   collectionCard: {
@@ -453,7 +731,7 @@ const styles = {
     transition: "gap 0.2s",
   },
   aboutSection: {
-    padding: "96px 24px",
+    padding: "124px 24px 96px",
     backgroundColor: "#faf5ef",
   },
   aboutGrid: {
@@ -514,7 +792,7 @@ const styles = {
     color: "#6b4423",
   },
   ctaSection: {
-    padding: "96px 24px",
+    padding: "124px 24px 96px",
   },
   ctaCard: {
     backgroundColor: "#faf5ef",
