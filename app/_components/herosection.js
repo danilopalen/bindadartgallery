@@ -66,9 +66,10 @@ export default function HeroSection() {
 
         .hero-container {
           position: relative;
-          height: 100vh;
+          height: calc(100vh - 125px);
           width: 100%;
           overflow: hidden;
+          margin-top: 125px;
         }
 
         .hero-video {
