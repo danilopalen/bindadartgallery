@@ -52,52 +52,55 @@ export default function AntiqueShopLanding() {
 
   const collections = [
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208195/IMG_7074_vlcbxz.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285983/PHOTO-2026-01-13-18-35-32_3_o6zc0v.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208195/IMG_7089_xqfbui.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285982/PHOTO-2026-01-13-18-35-31_q6utif.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208194/IMG_7090_cvcy7c.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285981/PHOTO-2026-01-13-18-35-31_3_axwm6d.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208193/IMG_7087_iffihh.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285981/PHOTO-2026-01-13-18-35-31_2_ir94g8.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208192/IMG_7086_y4uvow.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285980/PHOTO-2026-01-13-18-35-29_2_xkyth7.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208192/IMG_7085_r5t9vi.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285980/PHOTO-2026-01-13-18-35-32_b84wzy.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208192/IMG_7084_rkemo7.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285979/PHOTO-2026-01-13-18-35-32_2_lkfeh1.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208191/IMG_7083_istg9m.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285979/PHOTO-2026-01-13-18-35-30_zqxge6.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208190/IMG_7082_ax92si.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285977/PHOTO-2026-01-13-18-35-30_3_lajt2c.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7080_vqqatv.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285977/PHOTO-2026-01-13-18-35-30_2_nwno7m.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7081_vh9muo.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285977/PHOTO-2026-01-13-18-35-26_g3wopv.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7078_c71wgl.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-19-24-47_q55u24.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7079_rg4uyl.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-19-24-43_whb5w3.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7077_z0nfpv.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-18-35-28_wd7od2.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7076_jbgvfa.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-18-35-29_fownjm.jpg",
     },
     {
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768208189/IMG_7075_gjk1bv.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-19-24-51_cr4wyp.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285975/PHOTO-2026-01-13-19-24-45_ngevlr.jpg",
     },
   ];
 
