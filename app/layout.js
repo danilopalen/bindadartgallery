@@ -19,6 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <title>Bindad Art</title>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
