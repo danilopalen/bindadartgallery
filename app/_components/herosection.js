@@ -1,13 +1,40 @@
 import React, { useState } from "react";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedVideo } from "@cloudinary/react";
+
+const CloudinaryVideo = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: "dl21jdd1c",
+    },
+  });
+
+  // Use the public ID of your video asset in Cloudinary
+  const myVideo = cld.video(
+    "att.Q5AAHQyilfp2m4xcNSnwBsvZCpWCR3G1JpKhwQGAr0U_dklzkq"
+  );
+
+  return (
+    <AdvancedVideo
+      className={`hero-video ${isVideoLoaded ? "loaded" : ""}`}
+      cldVid={myVideo}
+      controls={false} // Optional: hide controls for a seamless background video
+      autoPlay
+      muted
+      loop
+      playsInline // Recommended for mobile devices to prevent forced fullscreen
+      onLoadedData={() => setIsVideoLoaded(true)}
+    />
+  );
+};
 
 export default function HeroSection() {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   return (
     <>
       <div className="hero-container">
         {/* Video Background */}
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -20,7 +47,8 @@ export default function HeroSection() {
             type="video/mp4"
           />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        <CloudinaryVideo />
 
         {/* Gradient Overlay */}
         <div className="hero-overlay" />
