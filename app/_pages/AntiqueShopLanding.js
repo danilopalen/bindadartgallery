@@ -5,10 +5,12 @@ import HeroSection from "../_components/herosection";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
+import Modal from "../_components/modal";
 
 export default function AntiqueShopLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const slides = [
     {
@@ -153,7 +155,9 @@ export default function AntiqueShopLanding() {
               <a href="#contact" style={styles.navLink}>
                 Contact
               </a>
-              <button style={styles.navButton}>Visit Us</button>
+              <button style={styles.navButton} onClick={() => setIsOpen(true)}>
+                Visit Us
+              </button>
             </div>
 
             <button
@@ -338,15 +342,59 @@ export default function AntiqueShopLanding() {
           <div style={styles.aboutGrid}>
             <div style={styles.aboutContent}>
               <h2 style={styles.aboutTitle}>A Legacy of Excellence</h2>
-              <p style={styles.aboutText}>
+              {/* <p style={styles.aboutText}>
                 {`For over three decades, we've been preserving history and
                 connecting collectors with extraordinary pieces. From sacred
                 Filipino bulul statues that once guarded rice granaries to
                 masterful paintings that capture moments in time.`}
+              </p> */}
+              <p style={styles.aboutText}>
+                Welcome to Bindad. Cordillera Art and Culture, a living tribute
+                to John Bernabe Mamanglo and a continuation of his lifelong
+                devotion to the heritage and artistry of the Cordilleras.
               </p>
               <p style={styles.aboutText}>
-                Every artifact in our collection is authenticated, documented,
-                and chosen for its historical significance and artistic merit.
+                {`John Bernabe Mamanglo, known by his Ifugao name Bindad, quietly
+                shaped the appreciation of Ifugao and Cordillera artifacts for
+                decades. From the age of seventeen—or perhaps even earlier, he
+                walked alongside his father, Bernabe Mamanglo, learning the
+                ancient trade of Bulul and antique dealings. He
+                became known among collectors, artists, and antique dealers for
+                his deep knowledge of the Bulul—the sacred rice guardian of the
+                Ifugao, and his expertise guided many in understanding its
+                cultural depth and authenticity. Although others gained
+                recognition from what they learned from him, John remained
+                humble and silent about his role. One of his long-time clients,
+                the late collector and cultural advocate Floy Quintos,
+                recognized his contribution and made sure John's name was
+                inscribed beneath each Bulul he acquired, a rare gesture of
+                respect in the antique trade. Because of that, collectors began
+                to seek him out, tracing the origins of these remarkable pieces
+                back to him.`}
+              </p>
+              <p style={styles.aboutText}>
+                Beyond collecting, John kept a small wood workshop where he
+                worked with master carvers from Ifugao. Together, they continued
+                traditional carving practices using solid hardwoods—creating
+                both faithful reconstructions of heritage pieces and new works
+                inspired by ancestral forms. He believed that certain pieces
+                carried stories meant to be preserved rather than passed on, and
+                through this balance of tradition and craftsmanship, he became
+                both a guardian of culture and a keeper of memory.
+              </p>
+              <p style={styles.aboutText}>
+                {`John passed away, but his legacy endures. What
+                was once Aliguyon Antique Shop is now Bindad. Cordillera Art and
+                Culture—renamed in his honor and now under the continued care of
+                the Mamanglo family. Many of the pieces in the collection were
+                passed down from his father, carrying with them
+                generations of knowledge and reverence for Cordillera heritage.
+                We carry forward the work John loved and the heritage he
+                protected. This is more than a shop; it is a celebration of
+                Ifugao culture, a tribute to the artisans who have passed down
+                their skills through generations, and a continuation of John's
+                mission to bridge the hands of the ancestors with the hearts of
+                today's collectors.`}
               </p>
               {/* <button style={styles.aboutButton}>Our Story</button> */}
             </div>
@@ -400,6 +448,17 @@ export default function AntiqueShopLanding() {
           </div>
         </div>
       </footer>
+
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.809081600908!2d120.91796067534054!3d14.205954486234978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7f8c86bdadef%3A0x2a30615f4ca36794!2sAlitaptap%20Artists&#39;%20Community!5e0!3m2!1sen!2snz!4v1768289146766!5m2!1sen!2snz"
+          width="1200"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+        ></iframe>
+      </Modal>
     </div>
   );
 }
