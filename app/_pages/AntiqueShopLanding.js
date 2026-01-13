@@ -349,7 +349,7 @@ export default function AntiqueShopLanding() {
                 masterful paintings that capture moments in time.`}
               </p> */}
               <p style={styles.aboutText}>
-                Welcome to Bindad. Cordillera Art and Culture, a living tribute
+                Welcome to Bindad Cordillera Art and Culture, a living tribute
                 to John Bernabe Mamanglo and a continuation of his lifelong
                 devotion to the heritage and artistry of the Cordilleras.
               </p>
@@ -384,7 +384,7 @@ export default function AntiqueShopLanding() {
               </p>
               <p style={styles.aboutText}>
                 {`John passed away, but his legacy endures. What
-                was once Aliguyon Antique Shop is now Bindad. Cordillera Art and
+                was once Aliguyon Antique Shop is now Bindad Cordillera Art and
                 Culture—renamed in his honor and now under the continued care of
                 the Mamanglo family. Many of the pieces in the collection were
                 passed down from his father, carrying with them
