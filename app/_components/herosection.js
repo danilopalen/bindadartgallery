@@ -65,7 +65,7 @@ export default function HeroSection() {
             {/* Subheading */}
             <p className="hero-subheading">
               Discover exceptional antiques, from sacred Filipino bulul carvings
-              to timeless paintings. Each piece tells a story centuries in the
+              to timeless artifacts. Each piece tells a story centuries in the
               making.
             </p>
 
