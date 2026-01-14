@@ -99,7 +99,11 @@ export default function HeroSection() {
           overflow: hidden;
           margin-top: 125px;
         }
-
+        @media (max-width: 425px) {
+            .hero-container{
+                    margin-top: 104px;
+            }
+        }
         .hero-video {
           position: absolute;
           top: 0;

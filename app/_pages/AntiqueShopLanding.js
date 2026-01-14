@@ -128,70 +128,154 @@ export default function AntiqueShopLanding() {
   ];
 
   return (
-    <div style={styles.container}>
-      {/* Navigation */}
-      <nav style={styles.nav}>
-        <div style={styles.navContainer}>
-          <div style={styles.navContent}>
-            <div style={styles.logo}>
-              <div>
-                BIND<span style={{ color: "#000" }}>A</span>D.
-              </div>
-              <div style={{ marginLeft: "27px" }}>
-                CO<span style={{ color: "#000" }}>R</span>DILLERA
-              </div>
-              <div style={{ marginLeft: "29px" }}>
-                AR<span style={{ color: "#000" }}>T</span> AND CULTURE
-              </div>
-            </div>
+    <>
+      <style>{`
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-            <div style={styles.navLinks}>
-              <a href="#collections" style={styles.navLink}>
-                Collections
-              </a>
-              <a href="#about" style={styles.navLink}>
-                About
-              </a>
-              <a href="#contact" style={styles.navLink}>
-                Contact
-              </a>
-              <button style={styles.navButton} onClick={() => setIsOpen(true)}>
-                Visit Us
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      background-color: #ffffff;
+    }
+
+    body {
+      position: relative;
+    }
+
+    /* Mobile Navigation - Hide nav links, show mobile menu button */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none !important;
+      }
+
+      .mobile-menu-button {
+        display: flex !important;
+      }
+    }
+
+    /* Desktop Navigation - Show nav links, hide mobile menu button */
+    @media (min-width: 769px) {
+      .nav-links {
+        display: flex !important;
+      }
+
+      .mobile-menu-button {
+        display: none !important;
+      }
+
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+
+    /* Feature cards responsive */
+    @media (min-width: 768px) {
+      .feature-card {
+        flex: 1 1 calc(50% - 10px) !important;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .feature-card {
+        flex: 1 1 calc(33.333% - 14px) !important;
+      }
+    }
+
+    /* Collection cards responsive */
+    @media (min-width: 640px) {
+      .collection-card {
+        flex: 1 1 calc(50% - 12px) !important;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .collection-card {
+        flex: 1 1 calc(33.333% - 16px) !important;
+      }
+    }
+
+    /* About grid responsive */
+    @media (min-width: 768px) {
+      .about-content {
+        flex: 1 1 calc(50% - 24px) !important;
+      }
+    }
+  `}</style>
+      <div style={styles.container}>
+        {/* Navigation */}
+        <nav style={styles.nav}>
+          <div style={styles.navContainer}>
+            <div style={styles.navContent}>
+              <div style={styles.logo}>
+                <div>
+                  BIND<span style={{ color: "#000" }}>A</span>D.
+                </div>
+                <div style={{ marginLeft: "27px" }}>
+                  CO<span style={{ color: "#000" }}>R</span>DILLERA
+                </div>
+                <div style={{ marginLeft: "29px" }}>
+                  AR<span style={{ color: "#000" }}>T</span> AND CULTURE
+                </div>
+              </div>
+
+              <div className="nav-links" style={styles.navLinks}>
+                <a href="#collections" style={styles.navLink}>
+                  Collections
+                </a>
+                <a href="#about" style={styles.navLink}>
+                  About
+                </a>
+                <a href="#contact" style={styles.navLink}>
+                  Contact
+                </a>
+                <button
+                  style={styles.navButton}
+                  onClick={() => setIsOpen(true)}
+                >
+                  Visit Us
+                </button>
+              </div>
+
+              <button
+                className="mobile-menu-button"
+                style={styles.mobileMenuButton}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? (
+                  <X style={{ width: "24px", height: "24px" }} />
+                ) : (
+                  <Menu style={{ width: "24px", height: "24px" }} />
+                )}
               </button>
             </div>
 
-            <button
-              style={styles.mobileMenuButton}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? (
-                <X style={{ width: "24px", height: "24px" }} />
-              ) : (
-                <Menu style={{ width: "24px", height: "24px" }} />
-              )}
-            </button>
+            {mobileMenuOpen && (
+              <div className="mobile-menu" style={styles.mobileMenu}>
+                <a href="#collections" style={styles.mobileNavLink}>
+                  Collections
+                </a>
+                <a href="#about" style={styles.mobileNavLink}>
+                  About
+                </a>
+                <a href="#contact" style={styles.mobileNavLink}>
+                  Contact
+                </a>
+                <button style={styles.mobileNavButton}>Visit Us</button>
+              </div>
+            )}
           </div>
+        </nav>
 
-          {mobileMenuOpen && (
-            <div style={styles.mobileMenu}>
-              <a href="#collections" style={styles.mobileNavLink}>
-                Collections
-              </a>
-              <a href="#about" style={styles.mobileNavLink}>
-                About
-              </a>
-              <a href="#contact" style={styles.mobileNavLink}>
-                Contact
-              </a>
-              <button style={styles.mobileNavButton}>Visit Us</button>
-            </div>
-          )}
-        </div>
-      </nav>
-
-      <HeroSection />
-      {/* Hero Section */}
-      {/* <section style={styles.heroImage}>
+        <HeroSection />
+        {/* Hero Section */}
+        {/* <section style={styles.heroImage}>
         <div style={styles.container2}>
           <div style={styles.heroContent}>
             <h1 style={styles.heroTitle}>
@@ -212,8 +296,8 @@ export default function AntiqueShopLanding() {
         </div>
       </section> */}
 
-      {/* Hero Carousel */}
-      {/* <section style={styles.hero}>
+        {/* Hero Carousel */}
+        {/* <section style={styles.hero}>
         <div style={styles.carouselContainer}>
           <div style={styles.carouselWrapper}>
             {slides.map((slide, index) => (
@@ -271,8 +355,8 @@ export default function AntiqueShopLanding() {
         </div>
       </section> */}
 
-      {/* Features */}
-      {/* <section style={styles.section}>
+        {/* Features */}
+        {/* <section style={styles.section}>
         <div style={styles.container2}>
           <div style={styles.featuresGrid}>
             {features.map((feature, idx) => (
@@ -286,75 +370,75 @@ export default function AntiqueShopLanding() {
         </div>
       </section> */}
 
-      {/* Collections */}
-      <section id="collections" style={styles.collectionsSection}>
-        <div style={styles.container2}>
-          <div style={styles.sectionHeader}>
-            <h2 style={styles.sectionTitle}>Our Bulul Collections</h2>
-            {/* <p style={styles.sectionSubtitle}>
+        {/* Collections */}
+        <section id="collections" style={styles.collectionsSection}>
+          <div style={styles.container2}>
+            <div style={styles.sectionHeader}>
+              <h2 style={styles.sectionTitle}>Our Bulul Collections</h2>
+              {/* <p style={styles.sectionSubtitle}>
               Timeless treasures from around the world
             </p> */}
-          </div>
+            </div>
 
-          <div style={styles.collectionsGrid}>
-            {collections.map((collection, idx) => (
-              <Zoom key={idx}>
-                <img
-                  alt="That Wanaka Tree, New Zealand by Laura Smetsers"
-                  src={`${collection.url}`}
-                  width="300"
-                  style={{
-                    borderRadius: "16px",
-                    border: "1px solid #e5d4c1",
-                    transition: "border-color 0.2s, background-color 0.2s",
-                  }}
-                />
-              </Zoom>
-              // <div
-              //   key={idx}
-              //   style={{
-              //     ...styles.collectionCard,
-              //     backgroundImage: `url(
-              //       ${collection.url}
-              //     )`,
-              //     backgroundPosition: "center",
-              //     backgroundRepeat: "no-repeat",
-              //     backgroundSize: "contain",
-              //     height: "300px",
-              //   }}
-              // >
-              //  <div style={styles.collectionIcon}>{collection.icon}</div>
-              // <h3 style={styles.collectionTitle}>{collection.title}</h3>
-              // <p style={styles.collectionText}>{collection.description}</p>
-              // <div style={styles.collectionLink}>
-              //   <span>View Collection</span>
-              //   <ChevronRight style={{ width: "20px", height: "20px" }} />
-              // </div>
-              // </div>
-            ))}
+            <div style={styles.collectionsGrid}>
+              {collections.map((collection, idx) => (
+                <Zoom key={idx}>
+                  <img
+                    alt="That Wanaka Tree, New Zealand by Laura Smetsers"
+                    src={`${collection.url}`}
+                    width="260"
+                    style={{
+                      borderRadius: "16px",
+                      border: "1px solid #e5d4c1",
+                      transition: "border-color 0.2s, background-color 0.2s",
+                    }}
+                  />
+                </Zoom>
+                // <div
+                //   key={idx}
+                //   style={{
+                //     ...styles.collectionCard,
+                //     backgroundImage: `url(
+                //       ${collection.url}
+                //     )`,
+                //     backgroundPosition: "center",
+                //     backgroundRepeat: "no-repeat",
+                //     backgroundSize: "contain",
+                //     height: "300px",
+                //   }}
+                // >
+                //  <div style={styles.collectionIcon}>{collection.icon}</div>
+                // <h3 style={styles.collectionTitle}>{collection.title}</h3>
+                // <p style={styles.collectionText}>{collection.description}</p>
+                // <div style={styles.collectionLink}>
+                //   <span>View Collection</span>
+                //   <ChevronRight style={{ width: "20px", height: "20px" }} />
+                // </div>
+                // </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* About Section */}
-      <section id="about" style={styles.aboutSection}>
-        <div style={styles.container2}>
-          <div style={styles.aboutGrid}>
-            <div style={styles.aboutContent}>
-              <h2 style={styles.aboutTitle}>A Legacy of Excellence</h2>
-              {/* <p style={styles.aboutText}>
+        {/* About Section */}
+        <section id="about" style={styles.aboutSection}>
+          <div style={styles.container2}>
+            <div style={styles.aboutGrid}>
+              <div style={styles.aboutContent}>
+                <h2 style={styles.aboutTitle}>A Legacy of Excellence</h2>
+                {/* <p style={styles.aboutText}>
                 {`For over three decades, we've been preserving history and
                 connecting collectors with extraordinary pieces. From sacred
                 Filipino bulul statues that once guarded rice granaries to
                 masterful paintings that capture moments in time.`}
               </p> */}
-              <p style={styles.aboutText}>
-                Welcome to Bindad Cordillera Art and Culture, a living tribute
-                to John Bernabe Mamanglo and a continuation of his lifelong
-                devotion to the heritage and artistry of the Cordilleras.
-              </p>
-              <p style={styles.aboutText}>
-                {`John Bernabe Mamanglo, known by his Ifugao name Bindad, quietly
+                <p style={styles.aboutText}>
+                  Welcome to Bindad Cordillera Art and Culture, a living tribute
+                  to John Bernabe Mamanglo and a continuation of his lifelong
+                  devotion to the heritage and artistry of the Cordilleras.
+                </p>
+                <p style={styles.aboutText}>
+                  {`John Bernabe Mamanglo, known by his Ifugao name Bindad, quietly
                 shaped the appreciation of Ifugao and Cordillera artifacts for
                 decades. From the age of seventeen—or perhaps even earlier, he
                 walked alongside his father, Bernabe Mamanglo, learning the
@@ -371,19 +455,20 @@ export default function AntiqueShopLanding() {
                 respect in the antique trade. Because of that, collectors began
                 to seek him out, tracing the origins of these remarkable pieces
                 back to him.`}
-              </p>
-              <p style={styles.aboutText}>
-                Beyond collecting, John kept a small wood workshop where he
-                worked with master carvers from Ifugao. Together, they continued
-                traditional carving practices using solid hardwoods—creating
-                both faithful reconstructions of heritage pieces and new works
-                inspired by ancestral forms. He believed that certain pieces
-                carried stories meant to be preserved rather than passed on, and
-                through this balance of tradition and craftsmanship, he became
-                both a guardian of culture and a keeper of memory.
-              </p>
-              <p style={styles.aboutText}>
-                {`John passed away, but his legacy endures. What
+                </p>
+                <p style={styles.aboutText}>
+                  Beyond collecting, John kept a small wood workshop where he
+                  worked with master carvers from Ifugao. Together, they
+                  continued traditional carving practices using solid
+                  hardwoods—creating both faithful reconstructions of heritage
+                  pieces and new works inspired by ancestral forms. He believed
+                  that certain pieces carried stories meant to be preserved
+                  rather than passed on, and through this balance of tradition
+                  and craftsmanship, he became both a guardian of culture and a
+                  keeper of memory.
+                </p>
+                <p style={styles.aboutText}>
+                  {`John passed away, but his legacy endures. What
                 was once Aliguyon Antique Shop is now Bindad Cordillera Art and
                 Culture—renamed in his honor and now under the continued care of
                 the Mamanglo family. Many of the pieces in the collection were
@@ -395,10 +480,10 @@ export default function AntiqueShopLanding() {
                 their skills through generations, and a continuation of John's
                 mission to bridge the hands of the ancestors with the hearts of
                 today's collectors.`}
-              </p>
-              {/* <button style={styles.aboutButton}>Our Story</button> */}
-            </div>
-            {/* <div style={styles.statsGrid}>
+                </p>
+                {/* <button style={styles.aboutButton}>Our Story</button> */}
+              </div>
+              {/* <div style={styles.statsGrid}>
               <div style={styles.statCard}>
                 <div style={styles.statNumber}>35+</div>
                 <div style={styles.statLabel}>Years of Expertise</div>
@@ -416,12 +501,12 @@ export default function AntiqueShopLanding() {
                 <div style={styles.statLabel}>Authenticated</div>
               </div>
             </div> */}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      {/* <section style={styles.ctaSection}>
+        {/* CTA Section */}
+        {/* <section style={styles.ctaSection}>
         <div style={styles.container2}>
           <div style={styles.ctaCard}>
             <h2 style={styles.ctaTitle}>Start Your Collection Today</h2>
@@ -434,32 +519,33 @@ export default function AntiqueShopLanding() {
         </div>
       </section> */}
 
-      {/* Footer */}
-      <footer id="contact" style={styles.footer}>
-        <div style={styles.container2}>
-          <div style={styles.footerContent}>
-            <div style={styles.footerLogo}>BINDAD ART</div>
-            <p style={styles.footerText}>
-              Preserving history, one masterpiece at a time
-            </p>
-            <div style={styles.footerCopyright}>
-              © 2026 Bindad Art. All rights reserved.
+        {/* Footer */}
+        <footer id="contact" style={styles.footer}>
+          <div style={styles.container2}>
+            <div style={styles.footerContent}>
+              <div style={styles.footerLogo}>BINDAD ART</div>
+              <p style={styles.footerText}>
+                Preserving history, one masterpiece at a time
+              </p>
+              <div style={styles.footerCopyright}>
+                © 2026 Bindad Art. All rights reserved.
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.809081600908!2d120.91796067534054!3d14.205954486234978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7f8c86bdadef%3A0x2a30615f4ca36794!2sAlitaptap%20Artists&#39;%20Community!5e0!3m2!1sen!2snz!4v1768289146766!5m2!1sen!2snz"
-          width="1200"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-        ></iframe>
-      </Modal>
-    </div>
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.809081600908!2d120.91796067534054!3d14.205954486234978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7f8c86bdadef%3A0x2a30615f4ca36794!2sAlitaptap%20Artists&#39;%20Community!5e0!3m2!1sen!2snz!4v1768289146766!5m2!1sen!2snz"
+            width="1200"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </Modal>
+      </div>
+    </>
   );
 }
 
@@ -468,6 +554,11 @@ const styles = {
     backgroundColor: "#ffffff",
     minHeight: "100vh",
     color: "#2d1810",
+    width: "100%",
+    maxWidth: "100%",
+    margin: 0,
+    padding: 0,
+    overflowX: "hidden",
   },
   nav: {
     position: "fixed",
@@ -477,19 +568,24 @@ const styles = {
     zIndex: 50,
     backgroundColor: "#ffffff",
     borderBottom: "1px solid #e5d4c1",
+    width: "100%",
+    maxWidth: "100%",
   },
   navContainer: {
+    width: "100%",
     maxWidth: "1280px",
     margin: "0 auto",
-    padding: "20px 24px",
+    padding: "20px 16px",
+    boxSizing: "border-box",
   },
   navContent: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    width: "100%",
   },
   logo: {
-    fontSize: "24px",
+    fontSize: "clamp(18px, 4vw, 24px)",
     fontWeight: "bold",
     letterSpacing: "0.1em",
     color: "#8b5a3c",
@@ -497,16 +593,19 @@ const styles = {
   navLinks: {
     display: "flex",
     alignItems: "center",
-    gap: "32px",
+    gap: "clamp(12px, 2vw, 32px)",
+    flexWrap: "wrap",
   },
   navLink: {
     color: "#6b4423",
     textDecoration: "none",
     transition: "color 0.2s",
     cursor: "pointer",
+    fontSize: "clamp(13px, 2vw, 16px)",
+    whiteSpace: "nowrap",
   },
   navButton: {
-    padding: "8px 24px",
+    padding: "8px 12px",
     backgroundColor: "#8b5a3c",
     color: "#ffffff",
     border: "none",
@@ -514,6 +613,8 @@ const styles = {
     cursor: "pointer",
     fontWeight: "600",
     transition: "background-color 0.2s",
+    fontSize: "clamp(13px, 2vw, 16px)",
+    whiteSpace: "nowrap",
   },
   mobileMenuButton: {
     display: "none",
@@ -528,6 +629,7 @@ const styles = {
     gap: "16px",
     paddingTop: "16px",
     paddingBottom: "8px",
+    width: "100%",
   },
   mobileNavLink: {
     color: "#6b4423",
@@ -544,23 +646,33 @@ const styles = {
     width: "fit-content",
   },
   heroImage: {
-    paddingTop: "128px",
-    paddingBottom: "96px",
-    paddingLeft: "24px",
-    paddingRight: "24px",
+    paddingTop: "100px",
+    paddingBottom: "64px",
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+    margin: 0,
   },
   hero: {
-    paddingTop: "124px",
+    paddingTop: "80px",
     paddingBottom: "0",
     paddingLeft: "0",
     paddingRight: "0",
     position: "relative",
+    width: "100%",
+    maxWidth: "100%",
+    overflowX: "hidden",
+    margin: 0,
   },
   carouselContainer: {
     position: "relative",
     width: "100%",
-    height: "600px",
+    maxWidth: "100%",
+    height: "clamp(350px, 50vh, 600px)",
     overflow: "hidden",
+    margin: 0,
   },
   carouselWrapper: {
     position: "relative",
@@ -574,50 +686,50 @@ const styles = {
     width: "100%",
     height: "100%",
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-end",
     justifyContent: "center",
     transition: "opacity 0.5s ease-in-out",
-    // backgroundColor: "#faf5ef",
-    backgroundPosition: "50%",
+    backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    display: "flex",
-    alignItems: "flex-end",
   },
   slideContent: {
     width: "100%",
-    padding: "0 24px",
+    padding: "20px 12px",
     background: "linear-gradient(0deg, #8e9eab 0%, transparent 100%)",
-    // background: "linear-gradient(0deg, #434343 0%, transparent 100%)",
     textAlign: "center",
-    height: "300px",
+    minHeight: "200px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
+    boxSizing: "border-box",
   },
   slideIcon: {
-    fontSize: "120px",
-    marginBottom: "24px",
+    fontSize: "clamp(50px, 8vw, 120px)",
+    marginBottom: "12px",
   },
   slideTitle: {
-    fontSize: "64px",
+    fontSize: "clamp(24px, 5vw, 64px)",
     fontWeight: "bold",
-    marginBottom: "16px",
+    marginBottom: "8px",
     lineHeight: "1.1",
     color: "#2d1810",
+    wordBreak: "break-word",
   },
   slideSubtitle: {
-    fontSize: "32px",
+    fontSize: "clamp(16px, 3vw, 32px)",
     fontWeight: "600",
     color: "#fff",
+    wordBreak: "break-word",
   },
   slideText: {
-    fontSize: "20px",
+    fontSize: "clamp(13px, 2vw, 20px)",
     color: "#fff",
-    marginBottom: "40px",
-    lineHeight: "1.6",
-    maxWidth: "672px",
-    margin: "0 auto 40px",
+    marginBottom: "24px",
+    lineHeight: "1.5",
+    maxWidth: "100%",
+    padding: "0",
+    wordBreak: "break-word",
   },
   carouselButton: {
     position: "absolute",
@@ -626,8 +738,8 @@ const styles = {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     border: "1px solid #e5d4c1",
     borderRadius: "50%",
-    width: "56px",
-    height: "56px",
+    width: "clamp(36px, 7vw, 56px)",
+    height: "clamp(36px, 7vw, 56px)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -637,23 +749,23 @@ const styles = {
     zIndex: 10,
   },
   carouselButtonLeft: {
-    left: "24px",
+    left: "4px",
   },
   carouselButtonRight: {
-    right: "24px",
+    right: "4px",
   },
   dotsContainer: {
     position: "absolute",
-    bottom: "5px",
+    bottom: "8px",
     left: "50%",
     transform: "translateX(-50%)",
     display: "flex",
-    gap: "12px",
+    gap: "8px",
     zIndex: 10,
   },
   dot: {
-    width: "12px",
-    height: "12px",
+    width: "8px",
+    height: "8px",
     borderRadius: "50%",
     border: "none",
     cursor: "pointer",
@@ -661,168 +773,215 @@ const styles = {
     padding: 0,
   },
   container2: {
+    width: "100%",
     maxWidth: "1280px",
     margin: "0 auto",
+    padding: "0 16px",
+    boxSizing: "border-box",
   },
   heroContent: {
-    maxWidth: "896px",
+    maxWidth: "100%",
+    width: "100%",
   },
   badge: {
     display: "inline-block",
-    padding: "6px 16px",
+    padding: "6px 12px",
     backgroundColor: "#ffffff",
     border: "1px solid #d4a574",
     borderRadius: "24px",
     color: "#8b5a3c",
-    fontSize: "14px",
-    letterSpacing: "0.15em",
-    marginBottom: "24px",
+    fontSize: "clamp(11px, 2vw, 14px)",
+    letterSpacing: "0.1em",
+    marginBottom: "16px",
   },
   heroTitle: {
-    fontSize: "72px",
+    fontSize: "clamp(28px, 7vw, 72px)",
     fontWeight: "bold",
-    marginBottom: "24px",
+    marginBottom: "16px",
     lineHeight: "1.1",
     color: "#2d1810",
+    wordBreak: "break-word",
   },
   heroTitleAccent: {
     color: "#8b5a3c",
   },
   heroText: {
-    fontSize: "20px",
+    fontSize: "clamp(15px, 2.5vw, 20px)",
     color: "#6b4423",
-    marginBottom: "40px",
-    maxWidth: "672px",
+    marginBottom: "24px",
+    maxWidth: "100%",
     lineHeight: "1.6",
+    wordBreak: "break-word",
   },
   heroButton: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "8px",
-    padding: "16px 32px",
+    gap: "6px",
+    padding: "12px 24px",
     backgroundColor: "#8b5a3c",
     color: "#ffffff",
     border: "none",
     borderRadius: "8px",
-    fontSize: "16px",
+    fontSize: "clamp(14px, 2vw, 16px)",
     fontWeight: "600",
     cursor: "pointer",
     transition: "background-color 0.2s",
   },
   section: {
-    padding: "64px 24px",
+    padding: "48px 16px",
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+    margin: 0,
   },
   featuresGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "24px",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    width: "100%",
+    maxWidth: "1280px",
+    margin: "0 auto",
+    boxSizing: "border-box",
   },
   featureCard: {
-    padding: "32px",
+    flex: "1 1 100%",
+    minWidth: "280px",
+    padding: "20px",
     backgroundColor: "#faf5ef",
     borderRadius: "12px",
     border: "1px solid #e5d4c1",
     transition: "background-color 0.2s",
+    boxSizing: "border-box",
   },
   featureIcon: {
     color: "#8b5a3c",
-    marginBottom: "16px",
+    marginBottom: "12px",
+    fontSize: "clamp(32px, 6vw, 48px)",
   },
   featureTitle: {
-    fontSize: "20px",
+    fontSize: "clamp(17px, 3vw, 20px)",
     fontWeight: "bold",
-    marginBottom: "12px",
+    marginBottom: "10px",
     color: "#2d1810",
   },
   featureText: {
     color: "#6b4423",
     lineHeight: "1.6",
+    fontSize: "clamp(14px, 2vw, 16px)",
   },
   collectionsSection: {
-    padding: "124px 24px 96px",
+    padding: "64px 16px",
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+    margin: 0,
   },
   sectionHeader: {
     textAlign: "center",
-    marginBottom: "64px",
+    marginBottom: "40px",
+    boxSizing: "border-box",
   },
   sectionTitle: {
-    fontSize: "48px",
+    fontSize: "clamp(26px, 6vw, 48px)",
     fontWeight: "bold",
-    marginBottom: "16px",
+    marginBottom: "12px",
     color: "#2d1810",
+    wordBreak: "break-word",
   },
   sectionSubtitle: {
-    fontSize: "20px",
+    fontSize: "clamp(15px, 2.5vw, 20px)",
     color: "#6b4423",
+    wordBreak: "break-word",
   },
   collectionsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, 296px)",
-    gap: "32px",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "24px",
+    width: "100%",
+    maxWidth: "1280px",
+    margin: "0 auto",
+    boxSizing: "border-box",
+    justifyContent: "center",
   },
   collectionCard: {
-    padding: "32px",
+    flex: "1 1 100%",
+    minWidth: "280px",
+    padding: "24px",
     backgroundColor: "#faf5ef",
     borderRadius: "16px",
     border: "1px solid #e5d4c1",
     cursor: "pointer",
     transition: "border-color 0.2s, background-color 0.2s",
+    boxSizing: "border-box",
   },
   collectionIcon: {
-    fontSize: "64px",
-    marginBottom: "24px",
+    fontSize: "clamp(44px, 7vw, 64px)",
+    marginBottom: "16px",
   },
   collectionTitle: {
-    fontSize: "24px",
+    fontSize: "clamp(19px, 3vw, 24px)",
     fontWeight: "bold",
-    marginBottom: "16px",
+    marginBottom: "12px",
     color: "#2d1810",
     transition: "color 0.2s",
   },
   collectionText: {
     color: "#6b4423",
-    marginBottom: "24px",
+    marginBottom: "16px",
     lineHeight: "1.6",
+    fontSize: "clamp(14px, 2vw, 16px)",
   },
   collectionLink: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "8px",
+    gap: "6px",
     color: "#8b5a3c",
     fontWeight: "600",
     transition: "gap 0.2s",
+    fontSize: "clamp(14px, 2vw, 16px)",
   },
   aboutSection: {
-    padding: "124px 24px 96px",
+    padding: "64px 16px",
     backgroundColor: "#faf5ef",
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+    margin: 0,
   },
   aboutGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-    gap: "64px",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "48px",
     alignItems: "center",
+    width: "100%",
+    maxWidth: "1280px",
+    margin: "0 auto",
+    boxSizing: "border-box",
   },
   aboutContent: {
+    flex: "1 1 100%",
     maxWidth: "100%",
   },
   aboutIcon: {
-    fontSize: "64px",
-    marginBottom: "24px",
+    fontSize: "clamp(44px, 7vw, 64px)",
+    marginBottom: "16px",
   },
   aboutTitle: {
-    fontSize: "48px",
+    fontSize: "clamp(26px, 6vw, 48px)",
     fontWeight: "bold",
-    marginBottom: "24px",
+    marginBottom: "16px",
     color: "#2d1810",
+    wordBreak: "break-word",
   },
   aboutText: {
-    fontSize: "20px",
+    fontSize: "clamp(15px, 2.5vw, 20px)",
     color: "#6b4423",
-    marginBottom: "24px",
+    marginBottom: "16px",
     lineHeight: "1.6",
+    wordBreak: "break-word",
   },
   aboutButton: {
-    padding: "16px 32px",
+    padding: "12px 24px",
     backgroundColor: "#8b5a3c",
     color: "#ffffff",
     border: "none",
@@ -831,81 +990,105 @@ const styles = {
     cursor: "pointer",
     transition: "background-color 0.2s",
     marginTop: "8px",
+    fontSize: "clamp(14px, 2vw, 16px)",
   },
   statsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "24px",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    width: "100%",
   },
   statCard: {
-    padding: "32px",
+    flex: "1 1 calc(50% - 10px)",
+    minWidth: "140px",
+    padding: "20px",
     backgroundColor: "#ffffff",
     borderRadius: "12px",
     border: "1px solid #e5d4c1",
     textAlign: "center",
+    boxSizing: "border-box",
   },
   statNumber: {
-    fontSize: "36px",
+    fontSize: "clamp(24px, 5vw, 36px)",
     fontWeight: "bold",
     color: "#8b5a3c",
-    marginBottom: "8px",
+    marginBottom: "6px",
   },
   statLabel: {
     color: "#6b4423",
+    fontSize: "clamp(13px, 2vw, 16px)",
   },
   ctaSection: {
-    padding: "124px 24px 96px",
+    padding: "64px 16px",
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+    margin: 0,
   },
   ctaCard: {
     backgroundColor: "#faf5ef",
     border: "1px solid #e5d4c1",
-    borderRadius: "24px",
-    padding: "64px",
+    borderRadius: "20px",
+    padding: "clamp(28px, 5vw, 64px)",
     textAlign: "center",
+    width: "100%",
+    maxWidth: "1280px",
+    margin: "0 auto",
+    boxSizing: "border-box",
   },
   ctaTitle: {
-    fontSize: "48px",
+    fontSize: "clamp(26px, 6vw, 48px)",
     fontWeight: "bold",
-    marginBottom: "24px",
+    marginBottom: "16px",
     color: "#2d1810",
+    wordBreak: "break-word",
   },
   ctaText: {
-    fontSize: "20px",
+    fontSize: "clamp(15px, 2.5vw, 20px)",
     color: "#6b4423",
-    marginBottom: "40px",
-    maxWidth: "672px",
-    margin: "0 auto 40px",
+    marginBottom: "24px",
+    maxWidth: "100%",
+    lineHeight: "1.6",
+    wordBreak: "break-word",
   },
   ctaButton: {
-    padding: "20px 48px",
+    padding: "14px 32px",
     backgroundColor: "#8b5a3c",
     color: "#ffffff",
     border: "none",
     borderRadius: "12px",
-    fontSize: "18px",
+    fontSize: "clamp(15px, 2.5vw, 18px)",
     fontWeight: "bold",
     cursor: "pointer",
     transition: "background-color 0.2s",
   },
   footer: {
     borderTop: "1px solid #e5d4c1",
-    padding: "48px 24px",
+    padding: "32px 16px",
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+    margin: 0,
   },
   footerContent: {
     textAlign: "center",
+    width: "100%",
+    maxWidth: "1280px",
+    margin: "0 auto",
   },
   footerLogo: {
-    fontSize: "24px",
+    fontSize: "clamp(19px, 4vw, 24px)",
     fontWeight: "bold",
     color: "#8b5a3c",
-    marginBottom: "12px",
+    marginBottom: "10px",
   },
   footerText: {
     color: "#6b4423",
-    marginBottom: "24px",
+    marginBottom: "20px",
+    fontSize: "clamp(14px, 2vw, 16px)",
   },
   footerCopyright: {
     color: "#a68968",
-    fontSize: "14px",
+    fontSize: "clamp(12px, 2vw, 14px)",
   },
 };
