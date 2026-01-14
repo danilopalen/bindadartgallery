@@ -267,7 +267,12 @@ export default function AntiqueShopLanding() {
                 <a href="#contact" style={styles.mobileNavLink}>
                   Contact
                 </a>
-                <button style={styles.mobileNavButton}>Visit Us</button>
+                <button
+                  style={styles.mobileNavButton}
+                  onClick={() => setIsOpen(true)}
+                >
+                  Visit Us
+                </button>
               </div>
             )}
           </div>
