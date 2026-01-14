@@ -106,6 +106,27 @@ export default function AntiqueShopLanding() {
     },
   ];
 
+  const ghCollections = [
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377384/PHOTO-2026-01-14-17-50-24_c4eqxw.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-17-50-25_c03jjb.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-17-50-25_2_ql3g8b.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377384/PHOTO-2026-01-14-03-26-32_mh5uus.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-03-26-31_bicujy.jpg",
+    },
+    {
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-03-26-25_xuqmvx.jpg",
+    },
+  ];
+
   const features = [
     {
       icon: <Shield style={{ width: "32px", height: "32px" }} />,
@@ -258,18 +279,33 @@ export default function AntiqueShopLanding() {
 
             {mobileMenuOpen && (
               <div className="mobile-menu" style={styles.mobileMenu}>
-                <a href="#collections" style={styles.mobileNavLink}>
+                <a
+                  href="#collections"
+                  style={styles.mobileNavLink}
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
                   Collections
                 </a>
-                <a href="#about" style={styles.mobileNavLink}>
+                <a
+                  href="#about"
+                  style={styles.mobileNavLink}
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
                   About
                 </a>
-                <a href="#contact" style={styles.mobileNavLink}>
+                <a
+                  href="#contact"
+                  style={styles.mobileNavLink}
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
                   Contact
                 </a>
                 <button
                   style={styles.mobileNavButton}
-                  onClick={() => setIsOpen(true)}
+                  onClick={() => {
+                    setIsOpen(true);
+                    setMobileMenuOpen(!mobileMenuOpen);
+                  }}
                 >
                   Visit Us
                 </button>
@@ -420,6 +456,30 @@ export default function AntiqueShopLanding() {
                 //   <ChevronRight style={{ width: "20px", height: "20px" }} />
                 // </div>
                 // </div>
+              ))}
+            </div>
+          </div>
+          <div style={styles.container2}>
+            <div style={styles.sectionHeader}>
+              <h2 style={styles.sectionTitle}>
+                Our Gong and Handle Collections
+              </h2>
+            </div>
+
+            <div style={styles.collectionsGrid}>
+              {ghCollections.map((collection, idx) => (
+                <Zoom key={idx}>
+                  <img
+                    alt="That Wanaka Tree, New Zealand by Laura Smetsers"
+                    src={`${collection.url}`}
+                    width="260"
+                    style={{
+                      borderRadius: "16px",
+                      border: "1px solid #e5d4c1",
+                      transition: "border-color 0.2s, background-color 0.2s",
+                    }}
+                  />
+                </Zoom>
               ))}
             </div>
           </div>
@@ -781,7 +841,7 @@ const styles = {
     width: "100%",
     maxWidth: "1280px",
     margin: "0 auto",
-    padding: "0 16px",
+    padding: "16px",
     boxSizing: "border-box",
   },
   heroContent: {
@@ -875,7 +935,7 @@ const styles = {
     fontSize: "clamp(14px, 2vw, 16px)",
   },
   collectionsSection: {
-    padding: "64px 16px",
+    padding: "124px 16px 64px",
     width: "100%",
     maxWidth: "100%",
     boxSizing: "border-box",
@@ -946,12 +1006,12 @@ const styles = {
     fontSize: "clamp(14px, 2vw, 16px)",
   },
   aboutSection: {
-    padding: "64px 16px",
+    padding: "124px 16px 64px",
     backgroundColor: "#faf5ef",
     width: "100%",
     maxWidth: "100%",
     boxSizing: "border-box",
-    margin: 0,
+    margin: "0",
   },
   aboutGrid: {
     display: "flex",
