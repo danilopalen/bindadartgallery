@@ -6,6 +6,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
 import Modal from "../_components/modal";
+import FramerMultiSlideCarousel from "../_components/FramerMultiSlideCarousel";
 
 export default function AntiqueShopLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,75 +55,121 @@ export default function AntiqueShopLanding() {
 
   const collections = [
     {
+      id: 1,
+      title: "bulul collection 1",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285983/PHOTO-2026-01-13-18-35-32_3_o6zc0v.jpg",
     },
     {
+      id: 2,
+      title: "bulul collection 2",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285982/PHOTO-2026-01-13-18-35-31_q6utif.jpg",
     },
     {
+      id: 3,
+      title: "bulul collection 3",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285981/PHOTO-2026-01-13-18-35-31_3_axwm6d.jpg",
     },
     {
+      id: 4,
+      title: "bulul collection 4",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285981/PHOTO-2026-01-13-18-35-31_2_ir94g8.jpg",
     },
     {
+      id: 5,
+      title: "bulul collection 5",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285980/PHOTO-2026-01-13-18-35-29_2_xkyth7.jpg",
     },
     {
+      id: 6,
+      title: "bulul collection 6",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285980/PHOTO-2026-01-13-18-35-32_b84wzy.jpg",
     },
     {
+      id: 7,
+      title: "bulul collection 7",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285979/PHOTO-2026-01-13-18-35-32_2_lkfeh1.jpg",
     },
     {
+      id: 8,
+      title: "bulul collection 8",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285979/PHOTO-2026-01-13-18-35-30_zqxge6.jpg",
     },
     {
+      id: 9,
+      title: "bulul collection 9",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285977/PHOTO-2026-01-13-18-35-30_3_lajt2c.jpg",
     },
     {
+      id: 10,
+      title: "bulul collection 10",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285977/PHOTO-2026-01-13-18-35-30_2_nwno7m.jpg",
     },
     {
+      id: 11,
+      title: "bulul collection 11",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285977/PHOTO-2026-01-13-18-35-26_g3wopv.jpg",
     },
     {
+      id: 12,
+      title: "bulul collection 12",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-19-24-47_q55u24.jpg",
     },
     {
+      id: 13,
+      title: "bulul collection 13",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-19-24-43_whb5w3.jpg",
     },
     {
+      id: 14,
+      title: "bulul collection 14",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-18-35-28_wd7od2.jpg",
     },
     {
+      id: 15,
+      title: "bulul collection 15",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-18-35-29_fownjm.jpg",
     },
     {
+      id: 16,
+      title: "bulul collection 16",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285976/PHOTO-2026-01-13-19-24-51_cr4wyp.jpg",
     },
     {
+      id: 17,
+      title: "bulul collection 17",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285975/PHOTO-2026-01-13-19-24-45_ngevlr.jpg",
     },
   ];
 
   const ghCollections = [
     {
+      id: 1,
+      title: "gong holder collection 1",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377384/PHOTO-2026-01-14-17-50-24_c4eqxw.jpg",
     },
     {
+      id: 2,
+      title: "gong holder collection 2",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-17-50-25_c03jjb.jpg",
     },
     {
+      id: 3,
+      title: "gong holder collection 3",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-17-50-25_2_ql3g8b.jpg",
     },
     {
+      id: 4,
+      title: "gong holder collection 4",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377384/PHOTO-2026-01-14-03-26-32_mh5uus.jpg",
     },
     {
+      id: 6,
+      title: "gong holder collection 6",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-03-26-31_bicujy.jpg",
     },
     {
+      id: 7,
+      title: "gong holder collection 7",
       url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768377383/PHOTO-2026-01-14-03-26-25_xuqmvx.jpg",
     },
   ];
@@ -422,7 +469,8 @@ export default function AntiqueShopLanding() {
             </div>
 
             <div style={styles.collectionsGrid}>
-              {collections.map((collection, idx) => (
+              <FramerMultiSlideCarousel items={collections} />
+              {/* {collections.map((collection, idx) => (
                 <Zoom key={idx}>
                   <img
                     alt="That Wanaka Tree, New Zealand by Laura Smetsers"
@@ -456,10 +504,10 @@ export default function AntiqueShopLanding() {
                 //   <ChevronRight style={{ width: "20px", height: "20px" }} />
                 // </div>
                 // </div>
-              ))}
+              ))} */}
             </div>
           </div>
-          <div style={styles.container2}>
+          <div style={{ ...styles.container2, marginTop: "150px" }}>
             <div style={styles.sectionHeader}>
               <h2 style={styles.sectionTitle}>
                 Our Gong and Handle Collections
@@ -467,20 +515,7 @@ export default function AntiqueShopLanding() {
             </div>
 
             <div style={styles.collectionsGrid}>
-              {ghCollections.map((collection, idx) => (
-                <Zoom key={idx}>
-                  <img
-                    alt="That Wanaka Tree, New Zealand by Laura Smetsers"
-                    src={`${collection.url}`}
-                    width="260"
-                    style={{
-                      borderRadius: "16px",
-                      border: "1px solid #e5d4c1",
-                      transition: "border-color 0.2s, background-color 0.2s",
-                    }}
-                  />
-                </Zoom>
-              ))}
+              <FramerMultiSlideCarousel items={ghCollections} />
             </div>
           </div>
         </section>
@@ -935,7 +970,7 @@ const styles = {
     fontSize: "clamp(14px, 2vw, 16px)",
   },
   collectionsSection: {
-    padding: "124px 16px 64px",
+    padding: "150px 16px 64px",
     width: "100%",
     maxWidth: "100%",
     boxSizing: "border-box",
@@ -1006,7 +1041,7 @@ const styles = {
     fontSize: "clamp(14px, 2vw, 16px)",
   },
   aboutSection: {
-    padding: "124px 16px 64px",
+    padding: "150px 16px 64px",
     backgroundColor: "#faf5ef",
     width: "100%",
     maxWidth: "100%",
