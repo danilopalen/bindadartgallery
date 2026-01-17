@@ -624,6 +624,8 @@ export default function AntiqueShopLanding() {
           <div style={styles.container2}>
             <div style={styles.footerContent}>
               <div style={styles.footerLogo}>BINDAD ART</div>
+              <p style={styles.footerText}>Phone: +63 956 357 5704</p>
+              <p style={styles.footerText}>Email: info.bindadart@gmail.com</p>
               <p style={styles.footerText}>
                 Preserving history, one masterpiece at a time
               </p>
