@@ -27,7 +27,7 @@ function FramerMultiSlideCarousel({ items = [] }) {
   }, [index, x, isDragging]);
   return (
     <>
-      <div className="w-[90%] mx-auto lg:p-10 p-2">
+      <div className="w-[100%] mx-auto lg:p-10 p-2">
         <div className="flex flex-col gap-3">
           <div
             className="relative overflow-hidden rounded-lg"

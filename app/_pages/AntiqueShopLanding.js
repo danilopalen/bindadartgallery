@@ -57,7 +57,7 @@ export default function AntiqueShopLanding() {
     {
       id: 1,
       title: "bulul collection 1",
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285983/PHOTO-2026-01-13-18-35-32_3_o6zc0v.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285981/PHOTO-2026-01-13-18-35-31_3_axwm6d.jpg",
     },
     {
       id: 2,
@@ -67,7 +67,7 @@ export default function AntiqueShopLanding() {
     {
       id: 3,
       title: "bulul collection 3",
-      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285981/PHOTO-2026-01-13-18-35-31_3_axwm6d.jpg",
+      url: "https://res.cloudinary.com/dl21jdd1c/image/upload/v1768285983/PHOTO-2026-01-13-18-35-32_3_o6zc0v.jpg",
     },
     {
       id: 4,
