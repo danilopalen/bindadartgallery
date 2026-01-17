@@ -25,9 +25,9 @@ const Modal = ({ isOpen, onClose, children }) => {
           padding: "20px",
           borderRadius: "10px",
           boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
-          // Prevent the modal content from closing the modal when clicked
-          onClick: (e) => e.stopPropagation(),
         }}
+        // Prevent the modal content from closing the modal when clicked
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>
