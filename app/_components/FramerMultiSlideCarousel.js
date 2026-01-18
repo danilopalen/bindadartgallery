@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, animate } from "motion/react";
-import Zoom from "react-medium-image-zoom";
 import Modal from "./modal";
 const FULL_WIDTH_PX = 120;
 const COLLAPSED_WIDTH_PX = 35;
@@ -158,7 +157,12 @@ function Thumbnails({ items = [], index, setIndex }) {
     <div
       ref={thumbnailsRef}
       className="overflow-x-auto scrollbar-hide"
-      style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      style={{
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+        display: "flex",
+        justifyContent: "center",
+      }}
     >
       <div className="flex gap-1 h-20 pb-2" style={{ width: "fit-content" }}>
         {items.map((item, i) => (
