@@ -275,6 +275,23 @@ export default function AntiqueShopLanding() {
         flex: 1 1 calc(50% - 24px) !important;
       }
     }
+
+    .cordillera {
+        margin-left: 27px
+    }
+
+    .artAndCulture {
+        margin-left: 29px
+    }
+
+    @media (max-width: 425px) {
+      .cordillera {
+          margin-left: 20px
+      }
+      .artAndCulture{
+          margin-left: 21px
+      }
+    }
   `}</style>
       <div style={styles.container}>
         {/* Navigation */}
@@ -285,10 +302,10 @@ export default function AntiqueShopLanding() {
                 <div>
                   BIND<span style={{ color: "#000" }}>A</span>D.
                 </div>
-                <div style={{ marginLeft: "27px" }}>
+                <div className="cordillera">
                   CO<span style={{ color: "#000" }}>R</span>DILLERA
                 </div>
-                <div style={{ marginLeft: "29px" }}>
+                <div className="artAndCulture">
                   AR<span style={{ color: "#000" }}>T</span> AND CULTURE
                 </div>
               </div>
@@ -639,9 +656,9 @@ export default function AntiqueShopLanding() {
         <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.809081600908!2d120.91796067534054!3d14.205954486234978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7f8c86bdadef%3A0x2a30615f4ca36794!2sAlitaptap%20Artists&#39;%20Community!5e0!3m2!1sen!2snz!4v1768289146766!5m2!1sen!2snz"
-            width="1200"
+            // width="1200"
             height="450"
-            style={{ border: 0 }}
+            style={{ border: "none", width: "100%" }}
             allowFullScreen
             loading="lazy"
           ></iframe>
