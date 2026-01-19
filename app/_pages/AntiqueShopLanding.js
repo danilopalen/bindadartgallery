@@ -5,6 +5,7 @@ import HeroSection from "../_components/herosection";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
+import logo from "../../public/logo.svg";
 import Modal from "../_components/modal";
 import FramerMultiSlideCarousel from "../_components/FramerMultiSlideCarousel";
 
@@ -299,7 +300,13 @@ export default function AntiqueShopLanding() {
           <div style={styles.navContainer}>
             <div style={styles.navContent}>
               <div style={styles.logo}>
-                <div>
+                <Image
+                  src={logo}
+                  alt="Bindad. Cordillera Art and Culture"
+                  width={300}
+                  height={100}
+                />
+                {/* <div>
                   BIND<span style={{ color: "#000" }}>A</span>D.
                 </div>
                 <div className="cordillera">
@@ -307,7 +314,7 @@ export default function AntiqueShopLanding() {
                 </div>
                 <div className="artAndCulture">
                   AR<span style={{ color: "#000" }}>T</span> AND CULTURE
-                </div>
+                </div> */}
               </div>
 
               <div className="nav-links" style={styles.navLinks}>
