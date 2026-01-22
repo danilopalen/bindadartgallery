@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, width = "" }) => {
   if (!isOpen) return null; // If not open, render nothing
 
   return (
@@ -25,6 +25,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           padding: "20px",
           borderRadius: "10px",
           boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
+          width,
         }}
         // Prevent the modal content from closing the modal when clicked
         onClick={(e) => e.stopPropagation()}
